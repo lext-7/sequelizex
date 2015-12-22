@@ -1,0 +1,25 @@
+{
+  "name": "sequelize-x",
+  "version": "0.1.0",
+  "description": "some useful utilities for sequelize, such as simeple datatype",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lext-7/sequelizex.git"
+  },
+  "keywords": [
+    "sequelize"
+  ],
+  "author": "lext",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lext-7/sequelizex/issues"
+  },
+  "homepage": "https://github.com/lext-7/sequelizex#readme",
+  "dependencies": {
+    "sequelize": "^3.15.0"
+  }
+}
