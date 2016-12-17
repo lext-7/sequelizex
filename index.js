@@ -1,9 +1,9 @@
 
-var Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
-var DataTypes = Sequelize;
+const DataTypes = Sequelize;
 
-var String = (num, allowNull) => {
+const String = (num, allowNull) => {
     if (!num) {
         num = 2048;
     }
@@ -16,7 +16,7 @@ var String = (num, allowNull) => {
     }
 };
 
-var Double = (defaultValue) => {
+const Double = (defaultValue) => {
     if (typeof defaultValue === 'undefined') {
         defaultValue = 0;
     }
@@ -26,7 +26,7 @@ var Double = (defaultValue) => {
     }
 };
 
-var Int = (defaultValue) => {
+const Int = (defaultValue) => {
     if (typeof defaultValue === 'undefined') {
         defaultValue = 0;
     }
@@ -36,7 +36,7 @@ var Int = (defaultValue) => {
     }
 };
 
-var Phone = (allowNull) => {
+const Phone = (allowNull) => {
     if (typeof allowNull === 'undefined') {
         allowNull = false;
     }
@@ -49,7 +49,7 @@ var Phone = (allowNull) => {
     }
 };
 
-var Url = () => {
+const Url = () => {
     return {
         type: DataTypes.STRING,
         allowNull: false,
@@ -59,23 +59,39 @@ var Url = () => {
     }
 };
 
-var Date = () => {
+const Date = (defaultValue) => {
+    if (typeof defaultValue === 'undefined') {
+        defaultValue = Sequelize.NOW;
+    }
     return {
         type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
+        defaultValue
     }
 };
 
-var Bool = () => {
+const Bool = () => {
     return {
         type: Sequelize.BOOLEAN
     }
 };
 
-var Text = () => {
-    return {
-        type: Sequelize.TEXT
+const Text = (allowNull) => {
+    if (typeof allowNull === 'undefined') {
+        allowNull = false;
     }
+    return {
+        type: Sequelize.TEXT,
+        allowNull
+    }
+};
+
+const filterByStatus = (status) =>{
+    return function *(conditions) {
+        conditions.where = {
+            status: status
+        }
+        return yield this.findAll(conditions);
+    };
 };
 
 module.exports = {
@@ -88,5 +104,8 @@ module.exports = {
         Double,
         Bool,
         Text
+    },
+    Func: {
+        filterByStatus
     }
 };
