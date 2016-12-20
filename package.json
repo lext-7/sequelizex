@@ -1,6 +1,6 @@
 {
   "name": "sequelize-x",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "some useful utilities for sequelize, such as simeple datatype",
   "main": "index.js",
   "scripts": {

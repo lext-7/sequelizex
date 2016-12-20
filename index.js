@@ -59,13 +59,14 @@ const Url = () => {
     }
 };
 
-const Date = (defaultValue) => {
+const Date = (defaultValue, allowNull) => {
     if (typeof defaultValue === 'undefined') {
         defaultValue = Sequelize.NOW;
     }
     return {
         type: Sequelize.DATE,
-        defaultValue
+        allowNull,
+        defaultValue,
     }
 };
 
@@ -83,6 +84,17 @@ const Text = (allowNull) => {
         type: Sequelize.TEXT,
         allowNull
     }
+};
+
+const UUID = (primary)  => {
+    const opt = {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+    };
+    if (primary) {
+        opt.primary = true;
+    }
+    return opt;
 };
 
 const filterByStatus = (status) =>{
