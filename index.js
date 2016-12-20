@@ -115,7 +115,8 @@ module.exports = {
         Date,
         Double,
         Bool,
-        Text
+        Text,
+        UUID,
     },
     Func: {
         filterByStatus
