@@ -92,7 +92,7 @@ const UUID = (primary)  => {
         defaultValue: Sequelize.UUIDV4,
     };
     if (primary) {
-        opt.primary = true;
+        opt.primaryKey = true;
     }
     return opt;
 };
