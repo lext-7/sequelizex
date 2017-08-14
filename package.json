@@ -1,6 +1,6 @@
 {
   "name": "sequelize-x",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "some useful utilities for sequelize, such as simeple datatype",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/lext-7/sequelizex#readme",
   "dependencies": {
-    "sequelize": "^3.27.0"
+    "sequelize": ">=3.27.0"
   }
 }
